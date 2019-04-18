@@ -2,6 +2,7 @@
 # Simple Job find app for coders. This app uses Node, Express, Sequalize (mySQL) and Handlebars.
 
 # Quick Start
+import codegig.sql in mySQL
 # Install dependencies
 npm install
 
