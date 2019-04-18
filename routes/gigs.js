@@ -40,17 +40,28 @@ router.post("/add", (req, res) => {
     errors.push({ text: "please add a contact_email" });
   }
 
-  //Insert into table
+  if (errors.length > 0) {
+    res.render("add", {
+      errors,
+      title,
+      technologies,
+      budget,
+      description,
+      contact_email
+    });
+  } else {
+    //Insert into table
 
-  Gig.create({
-    title,
-    technologies,
-    description,
-    budget,
-    contact_email
-  })
-    .then(gig => res.redirect("/gigs"))
-    .catch(err => console.log(err));
+    Gig.create({
+      title,
+      technologies,
+      description,
+      budget,
+      contact_email
+    })
+      .then(gig => res.redirect("/gigs"))
+      .catch(err => console.log(err));
+  }
 });
 
 module.exports = router;
