@@ -16,10 +16,18 @@ db.authenticate()
     console.error("Unable to connect to the database:", err);
   });
 
+//Handlebars
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+//Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", (req, res) => {
   res.send("INDEX");
 });
 
+//GIG routes
 app.use("/gigs", require("./routes/gigs"));
 
 const PORT = process.env.PORT || 5000;
