@@ -21,15 +21,25 @@ router.get("/add", (req, res) => res.render("add"));
 //Add a gig
 
 router.post("/add", (req, res) => {
-  const data = {
-    title: "Looking for a wordpress Developer",
-    technologies: "php CSS HTML",
-    budget: "$3000",
-    description:
-      "Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser.",
-    contact_email: "node@js.com"
-  };
-  let { title, technologies, budget, description, contact_email } = data;
+  let { title, technologies, budget, description, contact_email } = req.body;
+  let errors = [];
+
+  if (!technologies) {
+    errors.push({ text: "please add a technologies" });
+  }
+
+  if (!title) {
+    errors.push({ text: "please add a title" });
+  }
+
+  if (!description) {
+    errors.push({ text: "please add a description" });
+  }
+
+  if (!contact_email) {
+    errors.push({ text: "please add a contact_email" });
+  }
+
   //Insert into table
 
   Gig.create({
