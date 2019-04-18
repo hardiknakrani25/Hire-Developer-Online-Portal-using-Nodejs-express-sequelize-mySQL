@@ -1,7 +1,7 @@
 
-Simple Job find app for coders. This app uses Node, Express, Sequalize (mySQL) and Handlebars.
+# Simple Job find app for coders. This app uses Node, Express, Sequalize (mySQL) and Handlebars.
 
-Quick Start
+# Quick Start
 # Install dependencies
 npm install
 
@@ -10,8 +10,8 @@ npm start
 # Dev Server (Nodemon)
 npm run dev
 
-Version
+# Version
 1.0.0
 
-License
+# License
 This project is licensed under the MIT License
